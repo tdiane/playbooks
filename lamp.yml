@@ -12,7 +12,7 @@
       when: ansible_os_family == 'RedHat'
       
     - name: Redemarrage des services RedHat/Centos
-      shell: systemctl restart http mariadb && systemctl enable http mariadb     
+      shell: systemctl restart httpd mariadb && systemctl enable httpd mariadb     
       when: ansible_os_family == 'RedHat'
   
     - name: Redemarrage des services Debian/Ubuntu
@@ -20,7 +20,7 @@
       when: ansible_os_family == 'Debian'
       
     - name: Ouverture du pare-feu RedHat/Centos 
-      shell: firewall-cmd --zone=public --permanent --add-service=http && firewall-cmd --reload   
+      shell: firewall-cmd --zone=public --permanent --add-service=httpd && firewall-cmd --reload   
       when: ansible_os_family == 'RedHat'
       
       
